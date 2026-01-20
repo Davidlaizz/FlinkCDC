@@ -8,13 +8,12 @@
 
 ## 📋 目录
 
-1. [环境准备](https://www.google.com/search?q=%231-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)
-2. [方案一：自定义 Sink (CustomSinkDemo)](https://www.google.com/search?q=%232-%E6%96%B9%E6%A1%88%E4%B8%80%E8%87%AA%E5%AE%9A%E4%B9%89-sink-customsinkdemo)
-3. [方案二：Flink SQL 多路同步 (FlinkSQLDemo)](https://www.google.com/search?q=%233-%E6%96%B9%E6%A1%88%E4%BA%8Cflink-sql-%E5%A4%9A%E8%B7%AF%E5%90%8C%E6%AD%A5-flinksqldemo)
-4. [方案三：DataStream 分流写法 (JdbcSinkDemo)](https://www.google.com/search?q=%234-%E6%96%B9%E6%A1%88%E4%B8%89datastream-%E5%88%86%E6%B5%81%E5%86%99%E6%B3%95-jdbcsinkdemo)
-5. [方案对比与总结](https://www.google.com/search?q=%235-%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94%E4%B8%8E%E6%80%BB%E7%BB%93)
-6. [常见问题与注意事项](https://www.google.com/search?q=%236-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
-
+- [1. 环境准备](#1-环境准备)
+- [2. 方案一：自定义 Sink (CustomSinkDemo)](#2-方案一自定义-sink-customsinkdemo)
+- [3. 方案二：Flink SQL 多路同步 (FlinkSQLDemo)](#3-方案二flink-sql-多路同步-flinksqldemo)
+- [4. 方案三：DataStream 分流写法 (JdbcSinkDemo)](#4-方案三datastream-分流写法-jdbcsinkdemo)
+- [5. 方案对比与总结](#5-方案对比与总结)
+- [6. 常见问题与注意事项](#6-常见问题与注意事项)
 ---
 
 ## 1. 环境准备
