@@ -1,15 +1,27 @@
 package com.example.flinkcdc;
 
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.configuration.RestOptions;
+import org.apache.flink.configuration.WebOptions;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.StatementSet;
+import org.apache.flink.table.api.TableResult;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 public class FlinkSQLDemo {
     public static void main(String[] args) {
         // 1. 初始化环境
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        // 必须开启 Checkpoint
+        // 创建配置以启用 Web UI
+        Configuration config = new Configuration();
+        config.setInteger(RestOptions.PORT, 8081);
+        config.setBoolean(WebOptions.SUBMIT_ENABLE, true);
+
+        // 使用配置创建环境
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(config);
+        // 开启 Checkpoint
         env.enableCheckpointing(3000);
+
+        System.out.println("Flink Web UI 已启动: http://localhost:8081");
 
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
 

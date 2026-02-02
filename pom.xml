@@ -96,7 +96,8 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-jdbc</artifactId>
-            <version>3.1.1-1.17</version> </dependency>
+            <version>3.1.1-1.17</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -107,6 +108,13 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-base</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- Flink Web UI 依赖 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-runtime-web</artifactId>
             <version>${flink.version}</version>
         </dependency>
     </dependencies>

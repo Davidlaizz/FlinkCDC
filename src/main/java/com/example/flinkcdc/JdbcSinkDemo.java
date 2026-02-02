@@ -6,6 +6,9 @@ import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.configuration.RestOptions;
+import org.apache.flink.configuration.WebOptions;
 import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
 import org.apache.flink.connector.jdbc.JdbcExecutionOptions;
 import org.apache.flink.connector.jdbc.JdbcSink;
@@ -14,8 +17,16 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 public class JdbcSinkDemo {
     public static void main(String[] args) throws Exception {
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        // 创建配置以启用 Web UI
+        Configuration config = new Configuration();
+        config.setInteger(RestOptions.PORT, 8081);
+        config.setBoolean(WebOptions.SUBMIT_ENABLE, true);
+
+        // 使用配置创建环境
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(config);
         env.enableCheckpointing(3000);
+
+        System.out.println("Flink Web UI 已启动: http://localhost:8081");
 
         // 1. Source 配置保持不变
         MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
